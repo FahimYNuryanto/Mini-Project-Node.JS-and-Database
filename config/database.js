@@ -1,7 +1,7 @@
 module.exports = {
-    HOST: '127.0.0.1',
+    HOST: 'localhost',
     USER: 'root',
     PASSWORD: 'password',
-    DB: "Merchant Database",
+    DB: "userMerchant",
     dialect: 'mysql',
 };

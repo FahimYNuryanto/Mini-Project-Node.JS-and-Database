@@ -4,7 +4,7 @@ const Products = require("../services/productServices.js");
 var router = require("express").Router();
 
 // Create a new account
-router.post('/register', Merchant.create);
+router.post('/merchant/register', Merchant.create);
 // Update an account
 router.put('/merchant/:username', Merchant.update);
 // Delete an account
@@ -17,7 +17,8 @@ router.get('/products/:username', Products.findAll);
 // Get a product in an account
 router.get('/products/:username/:id', Products.findOne);
 // Updating a product
-router.put('products/:username/:id', Products.update);
+router.put('/products/:username/:id', Products.update);
 // Delete a product
 router.delete('products/:username/:id', Products.delete);
-};
+app.use('/api', router);
+};  

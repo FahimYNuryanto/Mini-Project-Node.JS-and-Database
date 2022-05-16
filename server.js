@@ -1,18 +1,19 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
 const cors = require('cors');
 
 var corsOptions = {
-    origin: "https://127.0.0.1:3306"
+    origin: "http://localhost:4000"
 }
 app.use(cors(corsOptions));
 
 const db = require('./models');
-db.sequelize.sync( { force: true } );
+db.sequelize.sync();
 
 require("./routes/route.js")(app);
 
-const PORT = process.env.PORT || 3306;
+const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
     console.log(`Running a server on ${PORT}.`);
 });

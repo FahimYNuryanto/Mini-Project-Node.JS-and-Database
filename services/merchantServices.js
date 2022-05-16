@@ -1,12 +1,13 @@
 const db = require('../models');
 const Merchant = db.merchant;
+const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
-    if (!req.body.username || !req.body.password) {
+    if (!req.body.username) {
         res.status(400).send({
-            message: 'Username and password must be provided'
-        });
-        return
+            message: 'Username must be provided'
+        });  
+        return;
     }
     const merchant = {
         username: req.body.username,
